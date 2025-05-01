@@ -33,5 +33,4 @@ def check_password():
         color = "red"
     return jsonify({'message': message, 'color': color})
 
-if __name__ == '__main__':
-    app.run(debug=True)
+# No app.run() here, Vercel handles serving
