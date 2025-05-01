@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 import re
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="../Templates", static_folder="../static")
 
 def check_password_strength(password):
     length_error = len(password) < 8
@@ -33,4 +33,5 @@ def check_password():
         color = "red"
     return jsonify({'message': message, 'color': color})
 
-# No app.run() here, Vercel handles serving
+# ⬇️ Do NOT add app.run() here! 
+# Vercel automatically detects `app` and serves it.
